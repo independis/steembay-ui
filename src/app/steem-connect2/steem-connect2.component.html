@@ -1,0 +1,9 @@
+<div>
+<span *ngIf="!(steemConnect2Service.Sc2IsLoggedIn)">
+    <button type="button" class="btn btn-primary" (click)="steemConnect2Service.login()">&nbsp;STEEMCONNECT2 LOGIN&nbsp;</button>
+</span>
+<span *ngIf="steemConnect2Service.Sc2IsLoggedIn">
+    <button type="button" class="btn btn-primary" (click)="steemConnect2Service.logout()">&nbsp;LOGOUT @{{steemConnect2Service.Sc2Username}}&nbsp;</button>
+</span>
+</div>
+  

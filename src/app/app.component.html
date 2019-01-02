@@ -1,0 +1,30 @@
+<!-- Header Region --> 
+<div id="header-region" class="container-fluid" [class.opacity-dimmed]="busyIndicatorService.isBusy">
+    <div class="row">
+        <nav class="navbar navbar-expand navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="https://steemitimages.com/u/steembay/avatar" width="30" height="30" class="d-inline-block align-top" alt="">
+                steembay UI (beta)
+            </a>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item active">
+                    <a class="nav-link" routerLink="/auctions" queryParamsHandling ="preserve">Auctions <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" routerLink="/sell" queryParamsHandling ="preserve">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" routerLink="/about" queryParamsHandling ="preserve">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/legal" queryParamsHandling ="preserve">Legal Disclosure</a>
+                    </li>
+                    <li><div class="nav-item"><app-steem-connect2></app-steem-connect2></div></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <app-busy-indicator></app-busy-indicator>
+    <router-outlet></router-outlet>
+</div>

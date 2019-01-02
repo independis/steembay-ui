@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>steembay steemmonster auction</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.min.js"></script>
+	<script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+
+    <script src="steem-helper.js"></script>
+    <script src="steembay-steemmonster-auction.js"></script>
+	
+	<style type="text/css">
+.auction-image-container {
+	width:220px;height:160px;overflow:hidden;
+}
+.auction-image {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+}
+table tr td {
+	padding: 8px;
+	vertical-align: top;
+}
+</style>
+	<title>steembay UI</title>
+  </head>
+  <body class="bg-light center-block">
+    <div class="container" style="max-width:98%;">
+			<div class="row">
+				<div class="py-1 text-center">
+					<h2>steembay steemmonster auction</h2>
+				</div>
+			</div>
+			
+			<div class="row">
+				<fieldset>
+					<legend>Start Steem Monster Auction:</legend>
+					<label>Select Card to sell: </label>
+					<select id="selSteemMonsterCard">
+						<option value="1" image="https://s3.amazonaws.com/steemmonsters/cards_new/Goblin Shaman.png">Goblin Shaman (Level 1 - 0/2)</option>
+						<option value="2" image="https://s3.amazonaws.com/steemmonsters/cards_new/Giant Roc.png">Giant Roc (Level 1 - 0/2)</option>
+						<option value="3" image="https://s3.amazonaws.com/steemmonsters/cards_new/Kobold Miner.png">Kobold Miner (Level 1 - 0/2)</option>
+					</select><br>
+					<label>Start Price:</label> <input id="tbStartPrice" type="number" step='1.000' value='1.000' placeholder='1.000'><br>
+					<label>Currency: </label>
+					<select id="selCurrency">
+						<option value="STEEM">STEEM</option>
+						<option value="SBD">SBD</option>
+					</select><br>
+				</fieldset>
+				<button class="btn btn-primary  btn-block" type="submit" onclick="doIt()">create auction</button>
+			</div>
+
+			<hr>
+			<div class="row">
+				<h1>Results</h1>
+			</div>
+			<div class="row">
+				<div id="divResults"></div>
+			</div>
+		</div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>CREATE AUCTION</h2>
+    <form #sell="ngForm">
+        <div class="form-group row">
+            <label for="formGroupTitleInput">Title</label>
+            <input [(ngModel)]="title" name="title" #name="ngModel" class="form-control" type="text" id="formGroupTitleInput" placeholder="Title" required>
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Title is required</div>
+        </div>
+        <div class="form-group row">
+            <label for="formGroupDescriptionInput">Description</label>
+            <textarea [(ngModel)]="description" name="description" placeholder="Description" class="form-control" id="formGroupDescriptionInput" cols="80" rows="6" required></textarea>
+        </div>
+        <div class="form-group row">
+            <label for="formGroupTagsInput">Tags (additional to steembay):</label>
+            <input [(ngModel)]="tags" name="tags" placeholder="mytag" class="form-control" type="text" id="formGroupTagsInput">
+        </div>
+        <div class="form-group row">
+            <label for="formGroupStartAmountInput">Start Price:</label>
+            <input [(ngModel)]="start_amount" name="start_amount" type="number" step='0.100' class="form-control" id="formGroupStartAmountInput">
+        </div>
+        <div class="form-group row">
+            <label for="formGroupCurrencyInput">Currency: </label>
+            <select [(ngModel)]="currency" name="currency" class="form-control" id="formGroupCurrencyInput">
+                <option value="STEEM">STEEM</option>
+                <option value="SBD">SBD</option>
+            </select>
+        </div>
+    </form>
+
+    <hr>
+    
+    <button id="btnCreateAuction" class="btn btn-success btn-block" type="submit" (click)="createAuction()">create auction (*)</button>
+
+    <hr>
+
+    <p>* steembay is free of charge. To support the development team and to finance hosting a beneficiary of 10% of the payouts is used for the auction creation.</p>
+</div>

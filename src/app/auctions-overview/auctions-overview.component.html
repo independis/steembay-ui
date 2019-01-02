@@ -1,0 +1,75 @@
+<h2>Auctions</h2>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-10">
+                <input type="text" placeholder="Search" class="col-sm-12"
+                [(ngModel)]="searchText" 
+                (change)="onSearch()" />
+        </div>
+        <div class="col-sm-2">
+                <button class="btn btn-default">SEARCH</button>        
+        </div>
+    </div>
+            
+    <hr/>
+
+    <div class="card-columns">
+		<div *ngFor="let auction of auctions" 
+				class="card sb-1 mb-3"
+				[class.selected]="auction === selectedAuctionViewModel"
+				[class.bg-light]="auction.state === 'FINISHED' || auction.state === 'ENDED' || auction.state === 'CANCELED'"
+				(click)="onSelect(auction)">
+			<img class="card-img-top" src="{{auction.main_image_url}}" alt="{{auction.title}}">
+			<div class="card-body">
+				<h5 class="card-title"><a href="https://www.steemit.com/@{{auction.author}}" target="_blank"><div class="userpic" [ngStyle]="{'background-image': 'url(https://steemitimages.com/u/' + auction.author + '/avatar/small)'}"></div></a> {{auction.title}}</h5>
+				<p class="card-text">
+					<strong>{{auction.currency}} {{auction.start_amount !== undefined && auction.start_amount !== null ? auction.start_amount.toFixed(3) : ''}}</strong>
+					<br>
+					{{auction.start_info_text}}
+					<br>
+					{{auction.bid_info_text}}
+				</p>
+                <a href="https://steemit.com/@{{auction.author}}/{{auction.permlink}}"  target="_blank" class="card-link">steemit</a>
+                <a routerLink="/auction/{{auction.id}}" class="card-link">details</a>
+			</div>
+			<div class="card-footer text-muted">
+				<div class="row" *ngIf="auction.create_bid_enabled">
+                        <div class="col-sm-12"><h3><span class="badge badge-success" role="alert">{{auction.remaining_time_text}}</span></h3></div>
+                </div>
+                <div class="row" *ngIf="auction.create_bid_enabled">
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="bid" aria-label="currency" aria-describedby="basic-addon2" 
+                            [(ngModel)]="auction.create_bid_amount" 
+                            (change)="auction.onCreateBidAmountChanged()"
+                            step="{{auction.create_bid_step}}" min="{{auction.create_bid_min}}" max="{{auction.create_bid_max}}"
+                            [class.is-invalid]="!auction.create_bid_is_valid">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">{{auction.currency}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-primary" [disabled]="!auction.create_bid_is_valid" (click)="onCreateBid(auction)">&nbsp;BID&nbsp;</button>
+                    </div>        
+				</div>
+				<div class="row" *ngIf="!auction.create_bid_enabled">
+					<div class="col-12">{{auction.end_info_text}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div *ngIf="selectedAuctionViewModel">
+ 
+  <h2>{{selectedAuctionViewModel.permlink | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedAuctionViewModel.id}}</div>
+  <div>
+	<label>link:
+	  <a href="https://www.steemit.com/@{{selectedAuctionViewModel.author}}/{{selectedAuctionViewModel.permlink}}">@{{selectedAuctionViewModel.author}}/{{selectedAuctionViewModel.permlink}}</a>
+	</label>
+  </div>
+</div>
