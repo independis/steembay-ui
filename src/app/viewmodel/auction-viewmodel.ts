@@ -121,13 +121,13 @@ export class AuctionViewModel {
 
 		// set endInfoText
 		if (this.state === "FINISHED" || this.state === "ENDED" ) {
-			this.bid_info_text = (this.highest_bid !== null && this.highest_bid.bid_amount !== null)
+			this.bid_info_text = (this.highest_bid !== null && this.highest_bid.bid_amount !== undefined && this.highest_bid.bid_amount !== null)
 			? 'Winning Bid of ' + bidText
 			: 'No Bid';
 		} else if (this.state === "CANCELED") {
 			this.bid_info_text = '';
 		} else if (this.state === "RUNNING" || this.state === "STARTED") {
-			this.bid_info_text = (this.highest_bid !== null && this.highest_bid.bid_amount !== null)
+			this.bid_info_text = (this.highest_bid !== null && this.highest_bid.bid_amount !== undefined && this.highest_bid.bid_amount !== null)
 			? 'Highest Bid of ' + bidText
 			: 'No Bids till now...';
 		} else if (this.state === "NOTSTARTED") {
@@ -139,7 +139,7 @@ export class AuctionViewModel {
 
 	private setAuctionStartInfoText() {
 		this.start_info_text =
-		(this.start_amount !== undefined && this.start_amount !== null)
+		(this.state !== "NOTSTARTED" && this.start_amount !== undefined && this.start_amount !== null)
 		? `Start Amount of ${this.start_amount.toFixed(3)} ${this.currency}`
 		: 'Auction not started yet...';
 	}
