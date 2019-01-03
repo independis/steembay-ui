@@ -23,17 +23,16 @@ export class SellComponent implements OnInit {
 		public busyIndicatorService : BusyIndicatorService) { }
 
 	ngOnInit() {
-		this.start_amount = 2.0;
+		this.start_amount = 1.0;
 		this.currency = "STEEM";
 		this.description = 
 			"# What Do you sell\n\n" +
 			"Describe in detail what you want to sell.\n\n" +
 			"# Start Amount and Currency\n\n" +
 			"Start Amount: 1.000 SBD/STEEM\n\n" +
-			"(optional info: buy now price)\n\n" +
 			"<hr>\n\n" +
-			"This is an automatically created auction through the [stemmbay-UI](https://www.steemit.com/created/steembay). \n\n" +
-			"**The #steembay auction system was created by [@pollux.one](https://www.steemit.com/@pollux.one], [@schererf](https://www.steemit.com/@schererf] and [@independis](https://www.steemit.com/@independis].**";
+			"This is an automatically created auction through the [steembay UI](http://steembay.steemtool.de). \n\n" +
+			"**The #steembay auction system was created by [@pollux.one](https://www.steemit.com/@pollux.one), [@schererf](https://www.steemit.com/@schererf) and [@independis](https://www.steemit.com/@independis).**";
 	}
 
 	public createAuction() : void {
