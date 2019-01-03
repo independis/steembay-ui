@@ -129,7 +129,7 @@ export class AuctionsService {
 		target.author = source.author;
 		target.permlink = source.permlink;
 		target.created = source.created;
-		target.bid_amount = source.bid_amount;
+		target.bid_amount = source.bid_Amount;
 	  }
 
 	private mapBidDto2BidViewModel(source: BidDto, target: BidViewModel){
@@ -137,7 +137,7 @@ export class AuctionsService {
 		target.author = source.author;
 		target.permlink = source.permlink;
 		target.created = source.created;
-		target.bidAmount = source.bidAmount;
+		target.bidAmount = source.bid_Amount;
 		target.isStart = source.isStart;
 		target.isBid = source.isBid;
 		target.isBidAccepted = source.isBidAccepted;

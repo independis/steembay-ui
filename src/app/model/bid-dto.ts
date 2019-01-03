@@ -3,7 +3,7 @@ export class BidDto {
     author: string;
     permlink: string;
     created: Date;
-    bidAmount: number;
+    bid_Amount: number;
     isStart: boolean;
     isBid: boolean;
     isBidAccepted: boolean;
