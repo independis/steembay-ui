@@ -72,7 +72,7 @@ export class AuctionViewModel {
 	private setAuctionCreateBidValues() {
 		this.create_bid_step = 0.1;
 		this.create_bid_min = 
-			this.highest_bid !== null && this.highest_bid.bid_amount !== null
+			this.highest_bid !== null && this.highest_bid.bid_amount !== undefined && this.highest_bid.bid_amount !== null
 			? this.highest_bid.bid_amount + this.create_bid_step
 			: this.start_amount;
 		this.create_bid_max = 999999.999;
