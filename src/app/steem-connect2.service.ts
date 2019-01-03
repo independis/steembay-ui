@@ -4,7 +4,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 
 import { environment } from '../environments/environment';
 
-import * as sc2 from 'sc2-sdk';
+import * as sc2 from 'steemconnect';
 
 @Injectable({
 	providedIn: 'root'
@@ -44,7 +44,7 @@ export class SteemConnect2Service implements OnInit {
 			this._sc2Api = sc2.Initialize({
 				app: 'steemtool.app',
 				callbackURL: this.getCallbackUrl(),
-				accessToken: 'access_token',
+				accessToken: this._sc2AccessToken,
 				scope: ['vote', 'comment', 'comment_options']
 			});
 			this._sc2LoginUrl = this._sc2Api.getLoginURL('test');
