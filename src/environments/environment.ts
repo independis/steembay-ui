@@ -7,7 +7,7 @@ export const environment = {
   appName: 'steembay-ui/v0.1.0',
   steembayTag: 'dontusethis',
   appUrl: 'http://localhost:4200',
-  apiUrl: 'http://steembay-service.steemtool.de' // 'http://steembay-service-test.icondb.de'
+  apiUrl: 'https://steembay-service.steemtool.de' // 'http://steembay-service-test.icondb.de'
 };
 
 /*
